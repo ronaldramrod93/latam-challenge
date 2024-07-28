@@ -1,0 +1,6 @@
+project_id = "celestial-geode-430003-k9"
+region     = "us-central1"
+pubsub_topic_name = "challenge-latam-topic-dev"
+pubsub_subscription_name = "challenge-latam-subscription-dev"
+bigquery_dataset_name = "challenge_latam_bq_dataset_dev"
+bigquery_table_name = "challenge-latam-bq-table-dev"

@@ -35,6 +35,9 @@ Por dominio y preferencia se creará la infraestructura en *GCP*.
 - Se creó una aplicación con **python** la cual se conecta a **Bigquery** al desplegar.
 - Se creó un endpoint llamado ["/getData"](https://github.com/ronaldramrod93/latam-challenge/blob/57e4d24804aef96b923c1b16410e39ae9de4226d/app.py#L29C1-L43C30) el cual al ser consumido primero construye una query la cual es ejecutada usando el cliente de bigquery para finalmente parsear la respuesta a JSON y entregarla.
 - Con el objetivo de mantenerlo simple, este endpoint construye una query simple la cual define un "LIMIT 10".
+- A continuación se deja un ejemplo de uso de dicho endpoint:
+
+![alt text](https://github.com/ronaldramrod93/latam-challenge/blob/main/docs/getData.png)
 
 ### 2. Deployar API HTTP en la nube mediante CI/CD a tu elección. Flujo CI/CD y ejecuciones deben estar visibles en el repositorio git.
 - Para el flujo CI/CD se utilizará **github action**, el workflow creado puede verse [aquí](https://github.com/ronaldramrod93/latam-challenge/blob/main/.github/workflows/ci-cd.yml) y las ejecuciones [aquí](https://github.com/ronaldramrod93/latam-challenge/actions).
@@ -61,6 +64,9 @@ Por dominio y preferencia se creará la infraestructura en *GCP*.
     - Bigquery subscription automáticamente ingresa los datos utilizando la **API de escritura de Bigquery**, la cual le devuelve un estado de OK o ERROR.
     - Un OK convierte el mensaje "ACKNOWLEDGE", y un mensaje ERROR indica un reenvío.
 - Si en el proceso de almacenamiento se requiere transformar la data entonces se recomienda algún subscriber como **Dataflow**.
+- Como se mencionó líneas de arriba para el envío de mensajes a Pub/Sub se utiliza el endpoint "/ingestData", a continuación se deja un ejemplo de uso de dicho endpoint:
+
+![alt text](https://github.com/ronaldramrod93/latam-challenge/blob/main/docs/ingestData.png)
 
 ### 4. Incluye un diagrama de arquitectura con la infraestructura del punto 1.1 y su interacción con los servicios/aplicaciones que demuestra el proceso end-to-end de ingesta hasta el consumo por la API HTTP
 
